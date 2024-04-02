@@ -1,0 +1,7 @@
+{
+  "modelName": "playback_controller_model",
+  "name": "gameover",
+  "identifier": "playback_controller_model:3739-7583bdbf-b735-4554-a3ca-9d923077b05a",
+  "needsContinuousLooping": false,
+  "needsContinuousPlaying": false
+}
