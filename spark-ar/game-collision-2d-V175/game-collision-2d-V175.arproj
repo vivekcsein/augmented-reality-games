@@ -1,9 +1,9 @@
 {
   "modelName": "document",
   "name": "Effect",
-  "identifier": "document:4-db3578ce-fe53-4828-b0da-5e9e6544fbe0",
-  "id": "2db3578cefe534828b0da5e9e6544fbe0",
-  "revision": "3db3578cefe534828b0da5e9e6544fbe0",
+  "identifier": "document:4-bf3dc70c-d043-48d0-b166-3aa993ecfb01",
+  "id": "2bf3dc70cd04348d0b1663aa993ecfb01",
+  "revision": "3bf3dc70cd04348d0b1663aa993ecfb01",
   "version": {
     "dev": 0,
     "patch": 0,
@@ -22,11 +22,10 @@
   "objects": [
     {
       "modelName": "assets_config_model",
-      "identifier": "assets_config_model:213-db3578ce-fe53-4828-b0da-5e9e6544fbe0",
+      "identifier": "assets_config_model:213-bf3dc70c-d043-48d0-b166-3aa993ecfb01",
       "categoriesOrder": [
         "materials",
-        "scripts",
-        "playback_controllers"
+        "scripts"
       ]
     }
   ],
@@ -36,108 +35,81 @@
     "graphs": [
       {
         "modelName": "patch_graph",
-        "identifier": "patch_graph:94-db3578ce-fe53-4828-b0da-5e9e6544fbe0"
+        "identifier": "patch_graph:94-bf3dc70c-d043-48d0-b166-3aa993ecfb01"
       }
     ]
   },
   "children": [
     {
       "modelName": "textures",
-      "identifier": "textures:10-db3578ce-fe53-4828-b0da-5e9e6544fbe0"
+      "identifier": "textures:10-bf3dc70c-d043-48d0-b166-3aa993ecfb01"
     },
     {
       "modelName": "materials",
-      "identifier": "materials:12-db3578ce-fe53-4828-b0da-5e9e6544fbe0",
+      "identifier": "materials:12-bf3dc70c-d043-48d0-b166-3aa993ecfb01",
       "children": [
         {
-          "sectionFileLocation": "materials/hidemat.material"
+          "sectionFileLocation": "materials/material0.material"
         },
         {
-          "sectionFileLocation": "materials/receiverItemMat-2.material"
+          "sectionFileLocation": "materials/receiverMat-2.material"
         },
         {
-          "sectionFileLocation": "materials/itemChildMat1-3.material"
+          "sectionFileLocation": "materials/itemMat-2.material"
         },
         {
-          "sectionFileLocation": "materials/itemChildMat2.material"
-        },
-        {
-          "sectionFileLocation": "materials/itemChildMat3.material"
-        },
-        {
-          "sectionFileLocation": "materials/itemChildMat4.material"
-        },
-        {
-          "sectionFileLocation": "materials/itemChildMat5.material"
-        },
-        {
-          "sectionFileLocation": "materials/UI_instMat.material"
-        },
-        {
-          "sectionFileLocation": "materials/UI_textMat.material"
-        },
-        {
-          "sectionFileLocation": "materials/gameCounterMat-2.material"
-        },
-        {
-          "sectionFileLocation": "materials/UI_finalscoreMat-2.material"
-        },
-        {
-          "sectionFileLocation": "materials/gamecoreShowMat-2.material"
-        },
-        {
-          "sectionFileLocation": "materials/gameTimerShowMat-2.material"
+          "sectionFileLocation": "materials/material1-2.material"
         }
       ]
     },
     {
-      "sectionFileLocation": "catching-fallingV101.scene"
+      "sectionFileLocation": "game-collision-2d-V175.scene"
     },
     {
       "modelName": "layers",
-      "identifier": "layers:20-db3578ce-fe53-4828-b0da-5e9e6544fbe0",
+      "identifier": "layers:20-bf3dc70c-d043-48d0-b166-3aa993ecfb01",
       "children": [
         {
           "modelName": "layer",
           "name": "layer0",
-          "identifier": "layer:86-db3578ce-fe53-4828-b0da-5e9e6544fbe0",
+          "identifier": "layer:86-bf3dc70c-d043-48d0-b166-3aa993ecfb01",
           "color": "0xff8c72ca"
         }
       ]
     },
     {
       "modelName": "patch_graphs_model",
-      "identifier": "patch_graphs_model:30-db3578ce-fe53-4828-b0da-5e9e6544fbe0"
+      "identifier": "patch_graphs_model:30-bf3dc70c-d043-48d0-b166-3aa993ecfb01"
     },
     {
       "modelName": "scripts_model",
-      "identifier": "scripts_model:38-db3578ce-fe53-4828-b0da-5e9e6544fbe0",
+      "identifier": "scripts_model:38-bf3dc70c-d043-48d0-b166-3aa993ecfb01",
       "children": [
         {
           "modelName": "script_bridging_variables_model",
-          "identifier": "script_bridging_variables_model:40-db3578ce-fe53-4828-b0da-5e9e6544fbe0"
+          "identifier": "script_bridging_variables_model:40-bf3dc70c-d043-48d0-b166-3aa993ecfb01"
         },
         {
           "modelName": "script",
-          "name": "catching-falling-game.js",
-          "identifier": "script:2198-db3578ce-fe53-4828-b0da-5e9e6544fbe0",
-          "assetDataHash": "75fe0b31961e43c2965a7eae53617851",
-          "assetLocator": "scripts/catching-falling-game.js",
+          "name": "collision2d.js",
+          "identifier": "script:661-9960b3f9-4d97-4bc5-9df9-41629a0205fd",
+          "assetDataHash": "d01f0b6961f5ad37060692a7de7ce590",
+          "assetLocator": "scripts/collision2d.js",
           "isExternalAsset": true
         }
       ]
     },
     {
       "modelName": "bundled_packages_model",
-      "identifier": "bundled_packages_model:46-db3578ce-fe53-4828-b0da-5e9e6544fbe0"
+      "identifier": "bundled_packages_model:46-bf3dc70c-d043-48d0-b166-3aa993ecfb01"
     },
     {
       "modelName": "exportConfig",
-      "identifier": "exportConfig:50-db3578ce-fe53-4828-b0da-5e9e6544fbe0"
+      "identifier": "exportConfig:50-bf3dc70c-d043-48d0-b166-3aa993ecfb01"
     },
     {
       "modelName": "manifest",
-      "identifier": "manifest:52-db3578ce-fe53-4828-b0da-5e9e6544fbe0",
+      "identifier": "manifest:52-bf3dc70c-d043-48d0-b166-3aa993ecfb01",
       "additionalEnabledChanges": null,
       "assistantAppIDs": [
         "2320137961422959"
@@ -178,7 +150,7 @@
       "effectUsesAnimationScriptingModule": true,
       "effectUsesAppLauncher": false,
       "effectUsesAssistant": false,
-      "effectUsesAudio": true,
+      "effectUsesAudio": false,
       "effectUsesAudioLegacyMicFork": false,
       "effectUsesAudioMixer": false,
       "effectUsesAudioSpatialEmitter": false,
@@ -187,7 +159,7 @@
       "effectUsesAugmentGrouping": false,
       "effectUsesAugmentSizeControl": false,
       "effectUsesAutomaticAlphaSort": false,
-      "effectUsesAutomaticInstructions": false,
+      "effectUsesAutomaticInstructions": true,
       "effectUsesBlockModulesConfigExtras": false,
       "effectUsesBlocks": false,
       "effectUsesBlocksDownloadable": false,
@@ -197,7 +169,7 @@
       "effectUsesBoundingBoxScripting": false,
       "effectUsesBoundingBoxUtilities": false,
       "effectUsesCameraControl": false,
-      "effectUsesCameraInfoScriptingModule": true,
+      "effectUsesCameraInfoScriptingModule": false,
       "effectUsesCameraShare": false,
       "effectUsesComponentEvaluation": false,
       "effectUsesComposedLocally": false,
@@ -231,7 +203,7 @@
       "effectUsesDspReverb": false,
       "effectUsesDspVocoder": false,
       "effectUsesDynamicCapabilities": false,
-      "effectUsesDynamicInstructions": true,
+      "effectUsesDynamicInstructions": false,
       "effectUsesDynamicScriptProperties": false,
       "effectUsesDynamicText": false,
       "effectUsesEmbeddedVideo": false,
@@ -250,14 +222,14 @@
       "effectUsesFaceExpressionExperimental": false,
       "effectUsesFaceExpressionFitting": false,
       "effectUsesFaceExtraction": false,
-      "effectUsesFaceTracker": true,
-      "effectUsesFaceTracker3D": true,
+      "effectUsesFaceTracker": false,
+      "effectUsesFaceTracker3D": false,
       "effectUsesFaceTracker96": false,
       "effectUsesFaceTrackingScripting2D": false,
       "effectUsesFaceTrueScale": false,
       "effectUsesFaceWave": false,
       "effectUsesFacialExpressionRecognition": false,
-      "effectUsesFacialGestureRecognition": true,
+      "effectUsesFacialGestureRecognition": false,
       "effectUsesFieldOfView": false,
       "effectUsesFingerTracking": false,
       "effectUsesFonts": true,
@@ -281,7 +253,7 @@
       "effectUsesImageAntiAliasing": false,
       "effectUsesImageAssets": false,
       "effectUsesImageBasedLighting": false,
-      "effectUsesInstruction": true,
+      "effectUsesInstruction": false,
       "effectUsesIntent": false,
       "effectUsesInterEffectLinking": false,
       "effectUsesInternalScriptingAPI": false,
@@ -295,7 +267,7 @@
       "effectUsesLocale": false,
       "effectUsesLocation": false,
       "effectUsesLocationAirportData": false,
-      "effectUsesMaterialsScriptingModule": true,
+      "effectUsesMaterialsScriptingModule": false,
       "effectUsesMaxParticipants": false,
       "effectUsesMicrophone": false,
       "effectUsesMicrophoneV2": false,
@@ -306,7 +278,7 @@
       "effectUsesMultiplayer": false,
       "effectUsesMultipleRenderTargets": false,
       "effectUsesMusic": false,
-      "effectUsesNativeUIControl": true,
+      "effectUsesNativeUIControl": false,
       "effectUsesNativeUIControlEditableText": false,
       "effectUsesNativeUIControlEditableTextExitCB": false,
       "effectUsesNativeUIControlPicker": false,
@@ -347,7 +319,7 @@
       "effectUsesRGBCameraTexture": false,
       "effectUsesRTRMapping": false,
       "effectUsesRandomScriptingModule": false,
-      "effectUsesReactiveScriptingModule": true,
+      "effectUsesReactiveScriptingModule": false,
       "effectUsesRealScaleEstimation": false,
       "effectUsesRealScaleEstimationWithFallback": false,
       "effectUsesRecognition": false,
@@ -385,10 +357,10 @@
       "effectUsesTextAssets": false,
       "effectUsesTextCaptions": false,
       "effectUsesTextExtrusion": false,
-      "effectUsesTexturesScriptingModule": true,
+      "effectUsesTexturesScriptingModule": false,
       "effectUsesTimeScriptingModule": true,
       "effectUsesToasterTracking": false,
-      "effectUsesTouchGestures": true,
+      "effectUsesTouchGestures": false,
       "effectUsesTwoDimensionalText": true,
       "effectUsesTypeScript": false,
       "effectUsesUiCore": false,
@@ -419,7 +391,7 @@
       "faceExpressionFittingRTRRetargetingMinVersion": 1,
       "faceTrackerIsEnabled": false,
       "faceTrackerMaxFaces": 1,
-      "faceTrackerMinVersion": 13,
+      "faceTrackerMinVersion": 10,
       "facewaveMinVersion": 1,
       "hairSegmentationMinVersion": 1,
       "handTrackerMaxHands": 2,
@@ -434,23 +406,14 @@
       "instructionFindHandFrontCameraEnabled": true,
       "instructionFindPersonBackCameraEnabled": true,
       "instructionFindPersonFrontCameraEnabled": true,
-      "instructionTokens": [
-        "tap_to_start",
-        "tap_to_play",
-        "tap_to_reply",
-        "flip_camera"
-      ],
+      "instructionTokens": null,
       "interEffectLinkingEffectIds": null,
       "internalScriptingAPIDelay": false,
       "internalScriptingAPIDeprecatedParticles": false,
       "internalScriptingAPIEventStream": false,
       "internalScriptingAPIExperimentalCameraInfo": false,
       "internalScriptingAPIGlobalTransform": false,
-      "manuallyEnabledItemsIds": [
-        "effectUsesDynamicInstructions",
-        "effectUsesFaceTracker96",
-        "touchGesturesSupportsTap"
-      ],
+      "manuallyEnabledItemsIds": [],
       "maxParticipantsCount": 0,
       "multiclassSegmentationMinVersion": 3004,
       "objectTrackerMaxObjects": 1,
@@ -474,7 +437,7 @@
       "touchGesturesSupportsPinch": false,
       "touchGesturesSupportsRawTouch": false,
       "touchGesturesSupportsRotate": false,
-      "touchGesturesSupportsTap": true,
+      "touchGesturesSupportsTap": false,
       "whitelistedDomains": null,
       "witAppId": null,
       "witClientToken": null,
@@ -485,78 +448,33 @@
     },
     {
       "modelName": "target",
-      "identifier": "target:62-db3578ce-fe53-4828-b0da-5e9e6544fbe0",
-      "targetPlatforms": [
-        "instagram",
-        "facebook"
-      ],
-      "targetUseCases": [
-        "STORIES"
-      ]
+      "identifier": "target:62-bf3dc70c-d043-48d0-b166-3aa993ecfb01",
+      "targetPlatforms": []
     },
     {
       "modelName": "scripting_config_model",
-      "identifier": "scripting_config_model:72-db3578ce-fe53-4828-b0da-5e9e6544fbe0",
+      "identifier": "scripting_config_model:72-bf3dc70c-d043-48d0-b166-3aa993ecfb01",
       "forceStrictModeCompilation": true
     },
     {
       "modelName": "graphicsConfig",
-      "identifier": "graphicsConfig:92-db3578ce-fe53-4828-b0da-5e9e6544fbe0"
+      "identifier": "graphicsConfig:92-bf3dc70c-d043-48d0-b166-3aa993ecfb01"
     },
     {
       "modelName": "videos_model",
-      "identifier": "videos_model:193-db3578ce-fe53-4828-b0da-5e9e6544fbe0"
+      "identifier": "videos_model:193-bf3dc70c-d043-48d0-b166-3aa993ecfb01"
     },
     {
       "modelName": "fonts",
-      "identifier": "fonts:94-7583bdbf-b735-4554-a3ca-9d923077b05a",
+      "identifier": "fonts:60-9960b3f9-4d97-4bc5-9df9-41629a0205fd",
       "children": [
-        {
-          "modelName": "local_font_model",
-          "name": "Facebook Narrow Light",
-          "identifier": "local_font_model:6464-7583bdbf-b735-4554-a3ca-9d923077b05a",
-          "assetLocator": "6465-7583bdbf-b735-4554-a3ca-9d923077b05a",
-          "fontIdentity": "com.facebook.editor.fonts.facebooknarrow-light",
-          "isExternalAsset": false
-        },
-        {
-          "modelName": "local_font_model",
-          "name": "Facebook Script Light",
-          "identifier": "local_font_model:7076-7583bdbf-b735-4554-a3ca-9d923077b05a",
-          "assetLocator": "7077-7583bdbf-b735-4554-a3ca-9d923077b05a",
-          "fontIdentity": "com.facebook.editor.fonts.facebookscript-light",
-          "isExternalAsset": false
-        },
         {
           "modelName": "local_font_model",
           "name": "Facebook Sans Bold",
-          "identifier": "local_font_model:25243-7583bdbf-b735-4554-a3ca-9d923077b05a",
-          "assetLocator": "25244-7583bdbf-b735-4554-a3ca-9d923077b05a",
+          "identifier": "local_font_model:1571-9960b3f9-4d97-4bc5-9df9-41629a0205fd",
+          "assetLocator": "1572-9960b3f9-4d97-4bc5-9df9-41629a0205fd",
           "fontIdentity": "com.facebook.editor.fonts.facebooksans-bold",
           "isExternalAsset": false
-        },
-        {
-          "modelName": "local_font_model",
-          "name": "Facebook Hand Bold",
-          "identifier": "local_font_model:36352-7583bdbf-b735-4554-a3ca-9d923077b05a",
-          "assetLocator": "36353-7583bdbf-b735-4554-a3ca-9d923077b05a",
-          "fontIdentity": "com.facebook.editor.fonts.facebookhand-bold",
-          "isExternalAsset": false
-        }
-      ]
-    },
-    {
-      "modelName": "playback_controllers_model",
-      "identifier": "playback_controllers_model:126-7583bdbf-b735-4554-a3ca-9d923077b05a",
-      "children": [
-        {
-          "sectionFileLocation": "audios/bgaudio.audioctrl"
-        },
-        {
-          "sectionFileLocation": "audios/catching.audioctrl"
-        },
-        {
-          "sectionFileLocation": "audios/gameover.audioctrl"
         }
       ]
     }

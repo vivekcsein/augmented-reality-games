@@ -1,17 +1,5 @@
 // catching -falling game created by vivekcse for spark ar version 175
 
-// const Scene = require('Scene');
-// const d = require('Diagnostics');
-// const Time = require('Time');
-// const Animation = require('Animation');
-// const MS = require('Materials');
-// const TS = require('Textures');
-// const TG = require('TouchGestures');
-// const FT = require('FaceTracking');
-// const FG = require('FaceGestures');
-// const INS = require('Instruction');
-// const CameraInfo = require('CameraInfo');
-
 //es module import
 import Scene, { root } from 'Scene';
 import d from 'Diagnostics';
@@ -114,11 +102,11 @@ function camerapos() {
     TS.findFirst("itemTexture4"),
   ]);
 
-
   const gamePlayScreenUI = await Promise.all([
     Scene.root.findFirst('gameCounterText'),
     Scene.root.findFirst('gameScoreText'),
     Scene.root.findFirst('gameTimeText'),
+
     // ui screen backgrounds
     Scene.root.findFirst('gameScoreShow'),
     Scene.root.findFirst('gameTimerShow'),
@@ -126,22 +114,27 @@ function camerapos() {
   ]);
   const [gameCounterText, gameScoreText, gameTimeText, ...gameplayui] = gamePlayScreenUI;
 
+  const gameOverUI = await Promise.all([
+    Scene.root.findFirst('gameFinalScoreText'),
+  ])
+  const [gameFinalScoreText, ...gameoverUI] = gameOverUI;
+
   // reciever object
   let Robj = ["",
     {
-      obj: receiver[0], xLeft: -10, xRight: 10, yTop: 10, yBottom: -10,
+      obj: receiver[0], xLeft: -75, xRight: 75, yTop: 75, yBottom: -75,
     },
   ];
 
   let TextureProperties = [
-    { textureFrame: 1, xLeft: -5, xRight: 5, yTop: 10, yBottom: -10 },
-    { textureFrame: 2, xLeft: -5, xRight: 5, yTop: 10, yBottom: -10 },
-    { textureFrame: 3, xLeft: -5, xRight: 5, yTop: 10, yBottom: -10 },
-    { textureFrame: 4, xLeft: -5, xRight: 5, yTop: 10, yBottom: -10 },
+    { textureFrame: 1, xLeft: -50, xRight: 50, yTop: 50, yBottom: -50 },
+    { textureFrame: 1, xLeft: -50, xRight: 50, yTop: 50, yBottom: -50 },
+    { textureFrame: 1, xLeft: -50, xRight: 50, yTop: 50, yBottom: -50 },
+    { textureFrame: 1, xLeft: -50, xRight: 50, yTop: 50, yBottom: -50 },
   ];
 
   // items to be collect from receiver
-  let Tobj = ["",
+  let Tobj = [
     {
       obj: itemList[1],
       child: itemList[5 + 1],
@@ -215,7 +208,7 @@ function camerapos() {
     if (num == 0) {
       score = 20;
     }
-    else if (num == 4 | 5) {
+    else if (num == 4) {
       score = -5;
     } else {
       score = 10;
@@ -235,21 +228,32 @@ function camerapos() {
   const gameItemThrow = () => {
     if (gameON) {
       gameItemThrownCount++;
-      if (gameItemThrownCount % 6 == 0) {
-        gameItemThrownCount = 1
+      if (gameItemThrownCount % 5 == 0) {
+        gameItemThrownCount = 0
       }
-      const animSampler = Animation.samplers.linear(0, 1200);
+      const animSampler = Animation.samplers.linear(1200, 0);
       Tobj[gameItemThrownCount].driver = Animation.timeDriver({ durationMilliseconds: 3000, loopCount: 1, });
       Tobj[gameItemThrownCount].obj.transform.y = Animation.animate(Tobj[gameItemThrownCount].driver, animSampler);
 
       Tobj[gameItemThrownCount].posX = itemPosX_arr[Math.floor(Math.random() * itemPosX_arr.length)];
-      Tobj[gameItemThrownCount].obj.transform.x = Tobj[gameItemThrownCount].posX
+      // Tobj[gameItemThrownCount].obj.transform.x = Tobj[gameItemThrownCount].posX
 
       Tobj[gameItemThrownCount].textureNum = Math.floor(Math.random() * itemTextures.length);
       Tobj[gameItemThrownCount].mat.diffuse = itemTextures[Tobj[gameItemThrownCount].textureNum];
       // start driver to animate items from top to bottom
       Tobj[gameItemThrownCount].driver.reset();
       Tobj[gameItemThrownCount].driver.start();
+
+      // Tobj[gameItemThrownCount].detectON = true;
+      Tobj[gameItemThrownCount].obj.hidden = false;
+      // Time.clearTimeout(Tobj[gameItemThrownCount].timeout);
+
+      Tobj[gameItemThrownCount].timeout = Time.setTimeout(() => {
+        Tobj[gameItemThrownCount].detectON = true;
+      }, 500);
+      Tobj[gameItemThrownCount].timeout = Time.setTimeout(() => {
+        Tobj[gameItemThrownCount].detectON = false;
+      }, 800);
     }
   }
 
@@ -268,19 +272,23 @@ function camerapos() {
   const setScore = (Tnum) => {
     gamescore += getTextureScore(Tnum);
     gameScoreText.text = gamescore.toString();
+    Tobj[Tnum].detectON = false;
+    Tobj[Tnum].obj.hidden = true;
 
   }
 
-  const localCollisionDetectionFunction = (i) => {
-    let j = 0;
-    let c = Tobj[i].textureNum;
-    let Robjx = Robj[j].obj.transform.x.pinLastValue();
-    let Robjy = Robj[j].obj.transform.y.pinLastValue();
-    let Tobjx = Tobj[i].obj.transform.x.pinLastValue();
-    let Tobjy = Tobj[i].obj.transform.y.pinLastValue();
-
-    if (((Robjx + Robj[j].xLeft <= Tobjx + TextureProperties[c].xRight) && (Robjx + Robj[j].xRight >= Tobjx + TextureProperties[c].xLeft)) && ((Robjy + Robj[j].yTop >= Tobjy + TextureProperties[c].yBottom) && (Robjy + Robj[j].yBottom <= Tobjy + TextureProperties[c].yTop))) {
-      setScore(i);
+  const localCollisionDetectionFunction = (Tnum, Rnum) => {
+    const textureNum = Tobj[Tnum].textureNum;
+    console.log(textureNum);
+    const Robjx = Robj[Rnum].obj.transform.x.pinLastValue();
+    const Robjy = Robj[Rnum].obj.transform.y.pinLastValue();
+    const Tobjx = Tobj[Tnum].obj.transform.x.pinLastValue();
+    const Tobjy = Tobj[Tnum].obj.transform.y.pinLastValue();
+    if (
+      ((Robjy + Robj[Rnum].yBottom <= Tobjy + TextureProperties[textureNum].yTop) && (Robjy + Robj[Rnum].yTop >= Tobjy + TextureProperties[textureNum].yBottom)) &&
+      ((Robjx + Robj[Rnum].xLeft <= Tobjx + TextureProperties[textureNum].xRight) && (Robjx + Robj[Rnum].xRight >= Tobjx + TextureProperties[textureNum].xLeft))
+    ) {
+      setScore(Tnum);
     }
   }
 
@@ -308,10 +316,10 @@ function camerapos() {
 
       if (e % 800 == 0) {
         gameItemThrow();
+        // receiverItemBoundaries();
       }
 
       if (e % 200 == 100) {
-        receiverItemBoundaries();
         for (let x = 0; x < Tobj.length; x++) {
           if (Tobj[x].detectON) {
             // globalCollisionDetectionFunction(x, 1);
@@ -332,6 +340,8 @@ function camerapos() {
   }
   const gameOverScreen = () => {
     gameScreenShow(2)
+    gameFinalScoreText.text = gamescore.toString();
+
   }
 
   const gamePlayStart = () => {
@@ -399,3 +409,27 @@ function camerapos() {
   });
 
 })();
+
+// const localCollisionDetectionFunction = (i, j) => {
+//   const c = Tobj[i].textureNum;
+//   const Robjx = Robj[j].obj.transform.x.pinLastValue();
+//   const Robjy = Robj[j].obj.transform.y.pinLastValue();
+//   const Tobjx = Tobj[i].obj.transform.x.pinLastValue();
+//   const Tobjy = Tobj[i].obj.transform.y.pinLastValue();
+//   if (i == 2) {
+
+//     // d.log((Robjx + Robj[j].xRight >= Tobjx + TextureProperties[c].xLeft))
+//     // d.log((Robjx + Robj[j].xLeft <= Tobjx + TextureProperties[c].xRight))
+//     // d.log((Robjy + Robj[j].yTop >= Tobjy + TextureProperties[c].yBottom))
+//     // d.log((Robjy + Robj[j].yBottom <= Tobjy + TextureProperties[c].yTop))
+//   }
+
+//   if (
+//     ((Robjy + Robj[j].yBottom <= Tobjy + TextureProperties[c].yTop) && (Robjy + Robj[j].yTop >= Tobjy + TextureProperties[c].yBottom))
+//     &&
+//     ((Robjx + Robj[j].xLeft <= Tobjx + TextureProperties[c].xRight) && (Robjx + Robj[j].xRight >= Tobjx + TextureProperties[c].xLeft))
+//   ) {
+//     setScore(i);
+//     d.log(i)
+//   }
+// }
