@@ -409,27 +409,3 @@ function camerapos() {
   });
 
 })();
-
-// const localCollisionDetectionFunction = (i, j) => {
-//   const c = Tobj[i].textureNum;
-//   const Robjx = Robj[j].obj.transform.x.pinLastValue();
-//   const Robjy = Robj[j].obj.transform.y.pinLastValue();
-//   const Tobjx = Tobj[i].obj.transform.x.pinLastValue();
-//   const Tobjy = Tobj[i].obj.transform.y.pinLastValue();
-//   if (i == 2) {
-
-//     // d.log((Robjx + Robj[j].xRight >= Tobjx + TextureProperties[c].xLeft))
-//     // d.log((Robjx + Robj[j].xLeft <= Tobjx + TextureProperties[c].xRight))
-//     // d.log((Robjy + Robj[j].yTop >= Tobjy + TextureProperties[c].yBottom))
-//     // d.log((Robjy + Robj[j].yBottom <= Tobjy + TextureProperties[c].yTop))
-//   }
-
-//   if (
-//     ((Robjy + Robj[j].yBottom <= Tobjy + TextureProperties[c].yTop) && (Robjy + Robj[j].yTop >= Tobjy + TextureProperties[c].yBottom))
-//     &&
-//     ((Robjx + Robj[j].xLeft <= Tobjx + TextureProperties[c].xRight) && (Robjx + Robj[j].xRight >= Tobjx + TextureProperties[c].xLeft))
-//   ) {
-//     setScore(i);
-//     d.log(i)
-//   }
-// }
